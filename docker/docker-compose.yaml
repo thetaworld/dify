@@ -154,23 +154,6 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
 
-  # Frontend web application.
-  web:
-    image: langgenius/dify-web:0.3.3
-    restart: always
-    environment:
-      EDITION: SELF_HOSTED
-      # The base URL of console application, refers to the Console base URL of WEB service if console domain is
-      # different from api or web app domain.
-      # example: http://cloud.dify.ai
-      CONSOLE_URL: ''
-      # The URL for Web APP, refers to the Web App base URL of WEB service if web app domain is different from
-      # console or api domain.
-      # example: http://udify.app
-      APP_URL: ''
-      # The DSN for Sentry error reporting. If not set, Sentry error reporting will be disabled.
-      SENTRY_DSN: ''
-
   # The postgres database.
   db:
     image: postgres:15-alpine
